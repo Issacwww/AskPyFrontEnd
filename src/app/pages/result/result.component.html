@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container ">
+        <a class="navbar-brand text-light" (click)="home()">AskPy</a>
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="searchQuery" placeholder="Search" aria-label="Search" required>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" id="Search" (click)="onSubmit()">Search</button>
+          </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

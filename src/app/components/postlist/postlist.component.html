@@ -1,0 +1,49 @@
+<div class="container postlist">
+    <div class="title" *ngIf="hasRes; then success else error"></div>
+    <ng-template #success><h3>Results for '{{msg}}'</h3></ng-template>
+    <ng-template #error><h3>No Result, Try Another Query</h3></ng-template>
+    <!-- items being paged-->
+    <!-- <div *ngFor="let item of pagedItems">{{item.title}}</div>  -->
+      
+    <div *ngFor="let post of pagedItems;let key=index">
+        <div  class="card">
+          <div class="card-header">
+            <h5 class="card-title">
+              <a href="javascript:;" (click)="pass(post['parentId'],key+10*pager.currentPage);">{{post['type']}} : {{post['title']}}</a></h5>
+          </div>
+          <div class="card-body">
+            <div class="card-text">{{post['summary']}}</div>
+            <div class="alert-secondary date" role="alert"> {{post['date']}} </div>
+          </div>
+        </div>
+        <br>
+    </div>       
+    <!-- pager -->
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+          <ul class="pagination" *ngIf="pager.pages && pager.pages.length" >
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a class="page-link" (click)="setPage(1)">&laquo;</a>
+              </li>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a class="page-link" (click)="setPage(pager.currentPage - 1)">&lt;</a>
+              </li>
+              <li *ngFor="let page of pager.pages" class="page-item" [ngClass]="{active:pager.currentPage === page}">
+                  <a class="page-link" (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a class="page-link" (click)="setPage(pager.currentPage + 1)">&gt;</a>
+              </li>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a class="page-link" (click)="setPage(pager.totalPages)">&raquo;</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    
+
+    
+
+      
+</div>

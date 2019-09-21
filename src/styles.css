@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+pre{
+    margin-bottom: 1em;
+    padding: 12px 8px;
+    width: auto;
+    max-height: 600px;
+    overflow: auto;
+    font-size: 13px;
+    background-color: #eff0f1;
+    border-radius: 3px;
+}
+pre code{
+    padding: 2px;
+    padding-left: 13px;
+}
+.date{
+    position: relative;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-top: 1rem;
+    width: 205px;
+    float: right;
+}
+a {
+    cursor: pointer;
+}
